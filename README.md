@@ -2,4 +2,4 @@
 **Learn With Sumit**
 
 ### Classes
-- [01] NodeJS Story
+- [x] NodeJS Story
