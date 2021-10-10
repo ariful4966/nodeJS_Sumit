@@ -14,3 +14,11 @@
      - > npx install-peerdeps --dev eslint-config-airbnb-base
      - > yarn add -D eslint-config-prettier eslint-plugin-prettier
 - [x] Global Object & Module System
+- [x] Core Modules
+  1. Path
+  2. OS
+  3. FS
+     - > fs.writeFileSync()
+     - > fs.appendFileSync()
+     - > fs.readFileSync()
+- [x] Event
