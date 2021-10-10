@@ -22,3 +22,5 @@
      - > fs.appendFileSync()
      - > fs.readFileSync()
 - [x] Event
+- [x] http
+  1. http.createServer
