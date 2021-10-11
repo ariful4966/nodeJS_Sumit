@@ -10,5 +10,14 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1"
+  },
+  "name": "nodeJs-Sumit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com-ariful4966:ariful4966/nodeJS_Sumit.git",
+  "author": "ariful4082 <ariful4082@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
   }
 }

@@ -1,37 +1,51 @@
-// const path = require('path')
-// const myPath = '/media/ariful/Development/NodeJs-Backend/nodeJs-Sumit/index.js'
+const fs = require("fs");
+const http = require("http");
+const { chunk } = require("lodash");
 
-// console.log(path.parse(myPath));
+// const ourReadStream = fs.createReadStream(`${__dirname}/bigdata.txt`);
 
-// const os = require('os');
-// console.log(os.cpus());
+// ourReadStream.on('data', (chunk)=>{
+//   console.log(chunk);
+// });
 
-// const fs = require('fs');
-// fs.writeFileSync('myFile.txt', 'Hello Programmers')
-// fs.appendFileSync('myFile.txt', ' How are you?')
-// fs.readFile('myFile.txt', (err, data)=>{
-//     console.log(data.toString());
-// })
-// console.log('Hello');
+// console.log('Hello World');
 
-// const EventEmitter = require("events");
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.write(
+      ` <html>
+        <head>
+          <title>Form</title>
+        </head>
+      </html>`
+    );
+    res.write(
+      ` <body>
+        <form method="post" action="/process">
+          <input name="message"></input>
+        </form>
+      </body>`
+    );
+    res.end();
+  } else if (req.url === "/process" && req.method === "POST") {
+    const body = [];
+    req.on("data", (chunk) => {
+      body.push(chunk);
+    });
+    req.on("end", () => {
+      console.log("strem finished");
+      const parsedBody = Buffer.concat(body).toString();
+      console.log(parsedBody);
 
-// const emitter = new EventEmitter();
+      res.write("Thank for submitting");
+      res.end();
+    });
+  } else {
+    res.write("Not Found");
+    res.end();
+  }
+});
 
-const School = require('./school')
-
-// register a listener for bellRing event
-
-// Raise an event
-// setTimeout(() => {
-//   emitter.emit("bellRing", {
-//     period: "first",
-//     text: " period ended",
-//   });
-// }, 2000);
-const school = new School()
-school.on("bellRing", ({period, text}) => {
-    console.log("We need to run becase " + period + text );
-  });
-  
-school.startPeriod();
+server.listen(4000, () => {
+  console.log("Listening on port 4000");
+});

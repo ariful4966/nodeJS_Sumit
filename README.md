@@ -21,6 +21,7 @@
      - > fs.writeFileSync()
      - > fs.appendFileSync()
      - > fs.readFileSync()
-- [x] Event
-- [x] http
-  1. http.createServer
+  4. Event
+  5. http
+  - > http.createServer
+- [x] Streems & Buffers
