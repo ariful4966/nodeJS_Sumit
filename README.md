@@ -24,4 +24,7 @@
   4. Event
   5. http
   - > http.createServer
-- [x] Streems & Buffers
+- [x] Streams & Buffers
+  1. fs.createReadStream
+  1. fs.createWriteStream
+  - stream.pip

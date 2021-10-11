@@ -1,12 +1,11 @@
-const fs = require("fs");
+const http = require("http");
+const fs = require('fs')
+const server = http.createServer((req, res) => {
+  const myReadStream = fs.createReadStream(__dirname+'/bigdata.txt', 'utf-8')
 
-
-const ourReadStream = fs.createReadStream(`${__dirname}/bigdata.txt`);
-const ourWriteStream = fs.createWriteStream(`${__dirname}/output.txt`);
-
-ourReadStream.on('data', (chunk)=>{
-  ourWriteStream.write(chunk);
+  myReadStream.pipe(res);
 });
 
-console.log('Hello World');
-
+server.listen(4000, () => {
+  console.log("Listening on port 4000");
+});
