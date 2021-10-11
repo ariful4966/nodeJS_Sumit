@@ -1,51 +1,12 @@
 const fs = require("fs");
-const http = require("http");
-const { chunk } = require("lodash");
 
-// const ourReadStream = fs.createReadStream(`${__dirname}/bigdata.txt`);
 
-// ourReadStream.on('data', (chunk)=>{
-//   console.log(chunk);
-// });
+const ourReadStream = fs.createReadStream(`${__dirname}/bigdata.txt`);
+const ourWriteStream = fs.createWriteStream(`${__dirname}/output.txt`);
 
-// console.log('Hello World');
-
-const server = http.createServer((req, res) => {
-  if (req.url === "/") {
-    res.write(
-      ` <html>
-        <head>
-          <title>Form</title>
-        </head>
-      </html>`
-    );
-    res.write(
-      ` <body>
-        <form method="post" action="/process">
-          <input name="message"></input>
-        </form>
-      </body>`
-    );
-    res.end();
-  } else if (req.url === "/process" && req.method === "POST") {
-    const body = [];
-    req.on("data", (chunk) => {
-      body.push(chunk);
-    });
-    req.on("end", () => {
-      console.log("strem finished");
-      const parsedBody = Buffer.concat(body).toString();
-      console.log(parsedBody);
-
-      res.write("Thank for submitting");
-      res.end();
-    });
-  } else {
-    res.write("Not Found");
-    res.end();
-  }
+ourReadStream.on('data', (chunk)=>{
+  ourWriteStream.write(chunk);
 });
 
-server.listen(4000, () => {
-  console.log("Listening on port 4000");
-});
+console.log('Hello World');
+
