@@ -28,3 +28,4 @@
   1. fs.createReadStream
   1. fs.createWriteStream
   - stream.pip
+- [x] Understanding NodeJS
