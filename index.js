@@ -1,47 +1,47 @@
-/*
-Title: Basic Node App example
-Description: Simple node-application thant print random quotes per second setInterval
-Author: Aariful Islam
-Date: 12/10/21
-*/
+//Dependencis
+const http = require("http");
+const url = require("url");
+const { StringDecoder } = require("string_decoder");
 
+//app object  module scaffolding
 
-//Dependencies
-const mathLibrary = require('./lib/math');
-const quotesLibrary = require('./lib/quotes')
+const app = {};
 
-// App Object - Module scaffolding
-const app = {}
-
-//Configuration
+//configuration
 app.config = {
-  timeBetweenQuotes : 1000,
-}
-
-//function that prints a random quote
-app.printAQuote = function printAQuote(){
-
-  //Get all the quotes
-  const allQuotes = quotesLibrary.allQuotes();
-  //Get the length of the quotes
-  const numberOfQuotes = allQuotes.length;
-
-  // Pick a random number between 1 and the number of quotes
-  const randomNumber = mathLibrary.getRandomNumber(1, numberOfQuotes)
-
-  //Get the quote at that position in the array (minus one)
-  const selectedQuote = allQuotes[randomNumber-1];
-
-  //Print the quote to the console
-  console.log(selectedQuote);
-}
-
-
-// function that loops indefinitly, calling the printAQuote function as it goes
- 
-app.indefiniteLoop = function indefiniteLoop(){
-  setInterval(app.printAQuote, app.config.timeBetweenQuotes);
+  port: 5000,
 };
 
-//Invoke the loop
-app.indefiniteLoop();
+//create server
+app.createServer = () => {
+  const server = http.createServer(app.handleReqRes);
+  server.listen(app.config.port, () => {
+    console.log(`Listening to port ${app.config.port}`);
+  });
+};
+
+//handle request handler
+app.handleReqRes = (req, res) => {
+  //Request Handling
+  //Get the url and parse it
+  const parsedUrl = url.parse(req.url, true);
+  const path = parsedUrl.pathname;
+  const trimmedPath = path.replace(/^\/+|\/+$/g, "");
+  const method = req.method.toLowerCase();
+  const queryStringObject = parsedUrl.query;
+  const headersObject = req.headers;
+  const decoder = new StringDecoder("utf-8");
+  let realData = "";
+
+  req.on("data", (buffer) => {
+    realData += decoder.write(buffer);
+  });
+  req.on("end", () => {
+    realData += decoder.end();
+    console.log(realData);
+    // response handler
+    res.end("hello World");
+  });
+};
+
+app.createServer();

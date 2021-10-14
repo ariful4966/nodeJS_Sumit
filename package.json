@@ -1,23 +1,17 @@
 {
-  "dependencies": {
-    "lodash": "^4.17.21",
-    "react": "^17.0.2"
-  },
-  "devDependencies": {
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb-base": "14.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1"
-  },
-  "name": "nodeJs-Sumit",
+  "name": "nodejs-sumit",
   "version": "1.0.0",
+  "description": "**Learn With Sumit**",
   "main": "index.js",
-  "repository": "git@github.com-ariful4966:ariful4966/nodeJS_Sumit.git",
-  "author": "ariful4082 <ariful4082@gmail.com>",
-  "license": "MIT",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-ariful4966:ariful4966/nodeJS_Sumit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

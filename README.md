@@ -26,6 +26,9 @@
   - > http.createServer
 - [x] Streams & Buffers
   1. fs.createReadStream
-  1. fs.createWriteStream
-  - stream.pip
+  2. fs.createWriteStream
+  3. stream.pip
 - [x] Understanding NodeJS
+- [x] Uptime Monitoring API
+  1. res
+  2. req
