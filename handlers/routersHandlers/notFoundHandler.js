@@ -2,7 +2,7 @@ const handler = {};
 
 handler.notFoundHandler = (requestProperties, callback) => {
     callback(404, {
-        message: 'Your requiested URL was not found'
+        message: 'Your requested URL was not found'
     });
   console.log("Not Found");
 };
