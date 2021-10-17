@@ -34,4 +34,9 @@
   2. req
   3. Code Refactor
   4. Routing
-  5. USER API Created = create get update delete
+- [x] USER API Created = create get update delete
+- [x] Auth Token
+  1. create Token
+  2. get Token
+  3. update Token
+  4. delete Token
