@@ -1,48 +1,22 @@
 //Dependencies
-const http = require("http");
-const { handleReqRes } = require("./helpers/handleReqRes");
-const environment = require("./helpers/environment");
-const data = require("./lib/data");
-const { sendTwilioSms } = require("./helpers/notifications");
+const server = require('./lib/server');
+const worker = require('./lib/worker');
 
 //app object  module scaffolding
 
 const app = {};
 
-//test notification
-//Todo remove later
-sendTwilioSms("01863934966", "Hello world", (err) => {
-  console.log(`this is the error `, err);
-});
 
-// testing file system
 
-// TODO
-// data.create('test', 'newFile', {'name': 'Bangladesh', 'language': 'Bangla'}, (err)=>{
-//   console.log(`error was`, err);
-// })
+app.init = () => {
+  //start the server
+  server.init();
+  // start the workers
+  worker.init();
 
-// data.read('test', 'newFile', (err, data)=>{
-//   console.log(err, data);
-// })
+}
 
-// data.update('test', 'newFile',{ 'name':'England', 'language': 'English'}, (err)=>{
-//   console.log(err);
-// })
+app.init();
 
-// data.delete('test', 'newFile',(err)=>{
-//   console.log(err);
-// })
-
-//create server
-app.createServer = () => {
-  const server = http.createServer(app.handleReqRes);
-  server.listen(environment.port, () => {
-    console.log(`Listening to port ${environment.port}`);
-  });
-};
-
-//handle request handler
-app.handleReqRes = handleReqRes;
-
-app.createServer();
+//export the app
+module.exports = app;

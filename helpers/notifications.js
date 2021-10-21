@@ -20,8 +20,8 @@ notifications.sendTwilioSms = (phone, msg, callback) => {
 
   const userMsg =
     typeof msg === "string" &&
-    msg.trim().length > 0 &&
-    msg.trim().length <= 1600
+      msg.trim().length > 0 &&
+      msg.trim().length <= 1600
       ? msg.trim()
       : false;
 
