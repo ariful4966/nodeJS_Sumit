@@ -1,22 +1,16 @@
-//Dependencies
-const server = require('./lib/server');
-const worker = require('./lib/worker');
+const express = require('express');
 
-//app object  module scaffolding
-
-const app = {};
+const app = express();
+const port = 4000
 
 
+app.get('/', (req, res) => {
+    res.send('This is home page')
+})
+app.post('/', (req, res)=>{
+    res.send('This is home page with post request')
+})
 
-app.init = () => {
-  //start the server
-  server.init();
-  // start the workers
-  worker.init();
-
-}
-
-app.init();
-
-//export the app
-module.exports = app;
+app.listen(port, () => {
+    console.log('Listening on port ' + port);
+})

@@ -1,19 +1,14 @@
 {
-  "name": "nodejs-sumit",
+  "name": "nodeJs-Sumit",
   "version": "1.0.0",
-  "description": "**Learn With Sumit**",
   "main": "index.js",
+  "repository": "git@github.com-ariful4966:ariful4966/nodeJS_Sumit.git",
+  "author": "ariful4082 <ariful4082@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=staging nodemon index.js",
-    "production": "NODE_ENV=production nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com-ariful4966:ariful4966/nodeJS_Sumit.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {}
+    "start": "nodemon index"
+  }
 }
