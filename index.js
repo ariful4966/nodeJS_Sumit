@@ -3,16 +3,19 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
-app.use(
-    express.static(`${__dirname}/public/`, {
-        index: 'home.html',
-    })
-);
+// app.use(
+//     express.static(`${__dirname}/public/`, {
+//         index: 'home.html',
+//     })
+// );
 
-app.get('/', (req, res) => {
+const router = express.Router();
+app.use(router);
+
+router.get('/about', (req, res) => {
     res.send('This is home page');
 });
-app.post('/', (req, res) => {
+router.post('/', (req, res) => {
     res.send('This is home page with post request');
 });
 
