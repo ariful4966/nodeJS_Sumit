@@ -1,5 +1,3 @@
-[![Facebook][facebook-shield]][https://www.facebook.com/md.ariful.islam4082]
-
 # Node JS Learning
 
 **Learn With Sumit**
@@ -15,3 +13,22 @@
 - [x] express.urlencoded();
 - [x] express.static();
 - [x] express.Router();
+
+#### Application
+
+- [x] app.locals()
+- [x] app.mountpath()
+
+- [x] Events
+
+1. mount
+
+- [x] Methods
+
+1. app.all()
+2. app.disable();
+3. app.enable();
+4. app.param();
+5. app.path();
+6. app.engin();
+7. app.render();

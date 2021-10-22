@@ -2,23 +2,31 @@ const express = require('express');
 
 const app = express();
 const port = 4000;
+app.set('view engine', 'ejs');
 
-// app.use(
-//     express.static(`${__dirname}/public/`, {
-//         index: 'home.html',
-//     })
-// );
+app.route('/about/mission')
+    .get((req, res) => {
+        res.render('pages/about');
+    })
+    .post((req, res) => {
+        res.send('welcome to application home post');
+    })
+    .put((req, res) => {
+        res.send('welcome to application home put');
+    });
 
-const router = express.Router();
-app.use(router);
-
-router.get('/about', (req, res) => {
-    res.send('This is home page');
+app.get('/about/mission', (req, res) => {
+    res.send('welcome to application home');
 });
-router.post('/', (req, res) => {
-    res.send('This is home page with post request');
+
+app.post('/', (req, res) => {
+    res.send('welcome to application home post');
+});
+
+app.put('/', (req, res) => {
+    res.send('welcome to application home put');
 });
 
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+    console.log(`app is running on port ${port}`);
 });
