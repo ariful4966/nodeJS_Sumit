@@ -1,30 +1,18 @@
 const express = require('express');
 
 const app = express();
+const adminRoute = express.Router();
 const port = 4000;
-app.set('view engine', 'ejs');
+app.use('/admin', adminRoute);
 
-app.route('/about/mission')
-    .get((req, res) => {
-        res.render('pages/about');
-    })
-    .post((req, res) => {
-        res.send('welcome to application home post');
-    })
-    .put((req, res) => {
-        res.send('welcome to application home put');
-    });
-
-app.get('/about/mission', (req, res) => {
-    res.send('welcome to application home');
+adminRoute.get('/dashboard', (req, res) => {
+    console.log(req.baseUrl);
+    res.send('We are in admin Dashboard');
 });
 
-app.post('/', (req, res) => {
-    res.send('welcome to application home post');
-});
-
-app.put('/', (req, res) => {
-    res.send('welcome to application home put');
+app.get('/user/:id', (req, res) => {
+    console.log(req.baseUrl);
+    res.send('Hello World');
 });
 
 app.listen(port, () => {

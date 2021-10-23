@@ -32,3 +32,19 @@
 5. app.path();
 6. app.engin();
 7. app.render();
+
+- [x] Request
+
+1. req.baseUrl
+2. req.originalUrl
+3. req.path
+4. req.hostname
+5. req.ip
+6. req.method
+7. req.protocol
+8. req.params
+9. req.query
+10. req.body
+11. req.cookies
+12. req.signedCookies
+13. req.secure
