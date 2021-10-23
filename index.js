@@ -5,8 +5,8 @@ const adminRoute = express.Router();
 const port = 4000;
 app.use('/admin', adminRoute);
 
-adminRoute.post('/dashboard', (req, res) => {
-    console.log(req.method);
+adminRoute.get('/dashboard', (req, res) => {
+    console.log(req.protocol);
     res.send('We are in admin Dashboard');
 });
 
