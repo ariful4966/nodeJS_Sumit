@@ -6,12 +6,12 @@ const port = 4000;
 app.use('/admin', adminRoute);
 
 adminRoute.get('/dashboard', (req, res) => {
-    console.log(req.hostname);
+    console.log(req.ip);
     res.send('We are in admin Dashboard');
 });
 
 app.get('/user/:id', (req, res) => {
-    console.log(req.hostname);
+    console.log(req.ip);
     res.send('Hello World');
 });
 
