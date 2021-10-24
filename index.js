@@ -11,7 +11,7 @@ adminRoute.get('/dashboard', (req, res) => {
 });
 
 app.get('/user/:id', (req, res) => {
-    console.log(req.params.id);
+    console.log(req.query);
     res.send('Hello World');
 });
 
