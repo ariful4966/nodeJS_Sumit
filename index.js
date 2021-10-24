@@ -23,8 +23,12 @@ adminRoute.get('/dashboard', (req, res) => {
 app.get('/user/:id', handler);
 
 app.post('/user', (req, res) => {
-    console.log(req.body);
+    console.log(req.route);
     res.send('Hello World Post');
+});
+app.get('/user', (req, res) => {
+    console.log(req.route);
+    res.send('Hello World Get');
 });
 
 app.listen(port, () => {
