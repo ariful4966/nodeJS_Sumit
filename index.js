@@ -4,7 +4,8 @@ const app = express();
 const adminRoute = express.Router();
 const port = 4000;
 app.use('/admin', adminRoute);
-
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 adminRoute.get('/dashboard', (req, res) => {
     console.log(req.protocol);
     res.send('We are in admin Dashboard');
@@ -13,6 +14,11 @@ adminRoute.get('/dashboard', (req, res) => {
 app.get('/user/:id', (req, res) => {
     console.log(req.query);
     res.send('Hello World');
+});
+
+app.post('/user', (req, res) => {
+    console.log(req.body);
+    res.send('Hello World Post');
 });
 
 app.listen(port, () => {
