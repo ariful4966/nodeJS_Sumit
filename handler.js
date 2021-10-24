@@ -1,10 +1,5 @@
 const handler = (req, res) => {
-    // console.log(req.accepts('json'));
-    if (req.accepts('html')) {
-        req.render();
-    } else {
-        res.send('hello world');
-    }
+    console.log(req.get('content-type'));
     res.send('Hello World');
 };
 module.exports = handler;
