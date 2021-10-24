@@ -20,7 +20,7 @@ adminRoute.get('/dashboard', (req, res) => {
 });
 
 app.get('/user/:id', (req, res) => {
-    console.log(req.cookies);
+    console.log(req.secure);
     res.send('Hello World');
 });
 
