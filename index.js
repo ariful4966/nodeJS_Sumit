@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const adminRoute = express.Router();
 const port = 4000;
+const handler = require('./handler');
 
 app.use(cookieParser());
 
@@ -19,10 +20,7 @@ adminRoute.get('/dashboard', (req, res) => {
     res.send('We are in admin Dashboard');
 });
 
-app.get('/user/:id', (req, res) => {
-    console.log(req.secure);
-    res.send('Hello World');
-});
+app.get('/user/:id', handler);
 
 app.post('/user', (req, res) => {
     console.log(req.body);
