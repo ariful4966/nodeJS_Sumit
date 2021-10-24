@@ -33,7 +33,7 @@
 6. app.engin();
 7. app.render();
 
-- [x] Request
+- [x] Request Properties
 
 1. req.baseUrl
 2. req.originalUrl
@@ -48,3 +48,7 @@
 11. req.cookies
 12. req.signedCookies
 13. req.secure
+
+- [x] Request Methods
+
+1. req.accepts
