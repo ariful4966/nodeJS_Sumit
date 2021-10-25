@@ -10,7 +10,9 @@ app.get('/test', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.redirect('/test');
+    res.set('Title', 'Ariful islam Raju');
+    console.log(res.get('Title'));
+    res.end();
 });
 app.get('/about', (req, res) => {
     res.end('This is About Page');
