@@ -6,14 +6,24 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    // res.send('Hello World Get');
-    // res.end();
-    // res.json({
-    //     name: 'Ariful Islam Raju',
-    // });
-    // res.status(200);
-    // res.end();
-    res.sendStatus(200);
+    res.format({
+        'text/plain': () => {
+            res.send('hi');
+        },
+        'text/html': () => {
+            res.render('pages/about', {
+                name: 'Bangladesh',
+            });
+        },
+        'application/json': () => {
+            res.json({
+                message: 'About',
+            });
+        },
+        default: () => {
+            res.status(406).send('Not acceptable');
+        },
+    });
 });
 app.get('/about', (req, res) => {
     res.end('This is About Page');
