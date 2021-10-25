@@ -1,34 +1,20 @@
 const express = require('express');
 
-const cookieParser = require('cookie-parser');
-
-const app = express();
-const adminRoute = express.Router();
 const port = 4000;
-const handler = require('./handler');
+const app = express();
 
-app.use(cookieParser());
+app.set('view engine', 'ejs');
 
-app.use('/admin', adminRoute);
-
-app.use(express.urlencoded({ extended: false }));
-
-app.use(express.json());
-
-adminRoute.get('/dashboard', (req, res) => {
-    console.log(req.protocol);
-    res.send('We are in admin Dashboard');
-});
-
-app.get('/user/:id', handler);
-
-app.post('/user', (req, res) => {
-    console.log(req.route);
-    res.send('Hello World Post');
-});
-app.get('/user', (req, res) => {
-    console.log(req.route);
+app.get('/', (req, res) => {
     res.send('Hello World Get');
+});
+app.get('/about', (req, res) => {
+    console.log(res.headersSent);
+    // res.send('This is About Page');
+    res.render('pages/about', {
+        name: 'Bangladesh',
+    });
+    console.log(res.headersSent);
 });
 
 app.listen(port, () => {

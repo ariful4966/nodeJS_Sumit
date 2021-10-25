@@ -52,3 +52,25 @@
 - [x] Request Methods
 
 1. req.accepts
+
+- [x] Response Properties
+
+1. res.app
+2. res.headersSent
+3. res.locals
+
+- [x] Response Methods
+
+1. res.cookie
+2. res.clearCookie
+3. res.end
+4. res.send
+5. res.json
+6. res. status
+7. res.sendStatus
+8. res.render
+9. res. formate
+10. res.location
+11. res.redirect
+12. res.get
+13. res.set
