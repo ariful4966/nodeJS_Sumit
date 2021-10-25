@@ -6,15 +6,14 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.send('Hello World Get');
+    // res.send('Hello World Get');
+    // res.end();
+    res.json({
+        name: 'Ariful Islam Raju',
+    });
 });
 app.get('/about', (req, res) => {
-    console.log(res.headersSent);
-    // res.send('This is About Page');
-    res.render('pages/about', {
-        name: 'Bangladesh',
-    });
-    console.log(res.headersSent);
+    res.end('This is About Page');
 });
 
 app.listen(port, () => {
