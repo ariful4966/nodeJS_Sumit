@@ -74,3 +74,11 @@
 11. res.redirect
 12. res.get
 13. res.set
+
+#### Middleware
+
+i. application level middleware
+ii. router level middleware
+iii. error-handling middleware
+iv. build-in middleware
+v. third-party middleware

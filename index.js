@@ -3,19 +3,26 @@ const express = require('express');
 const port = 4000;
 const app = express();
 
-app.set('view engine', 'ejs');
+const myMiddleware = (req, res, next) => {
+    console.log('I am logging');
+    next();
+};
 
-app.get('/test', (req, res) => {
-    res.send('Hello Mike testing');
-});
+const myMiddleware2 = (req, res, next) => {
+    console.log('I am logging 2');
+    next();
+};
+
+app.use(myMiddleware);
+
+app.use(myMiddleware2);
 
 app.get('/', (req, res) => {
-    res.set('Title', 'Ariful islam Raju');
-    console.log(res.get('Title'));
-    res.end();
+    res.send('This is home page');
 });
-app.get('/about', (req, res) => {
-    res.end('This is About Page');
+
+app.get('/about', myMiddleware, myMiddleware2, (req, res) => {
+    res.send('About page is hare');
 });
 
 app.listen(port, () => {
