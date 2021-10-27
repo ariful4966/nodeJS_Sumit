@@ -1,18 +1,22 @@
 const publicRouter = require('express').Router();
 
-publicRouter.param((param, option) => (req, res, next, val) => {
-    if (val === option) {
+publicRouter
+    .route('/user')
+    .all((req, res, next) => {
+        console.log('I am logging something');
         next();
-    } else {
-        res.sendStatus(403);
-    }
-});
-publicRouter.param('user', '12');
+    })
+    .get((req, res) => {
+        res.send('GET');
+    })
+    .post((req, res) => {
+        res.send('POST');
+    })
+    .put((req, res) => {
+        res.send('UPDATE');
+    })
+    .delete((req, res) => {
+        res.send('DELETE');
+    });
 
-publicRouter.get('/:user', (req, res) => {
-    res.send('Hello Admin');
-});
-publicRouter.get('/about', (req, res) => {
-    res.send('About page is here');
-});
 module.exports = publicRouter;

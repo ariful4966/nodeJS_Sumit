@@ -86,3 +86,8 @@ iv. build-in middleware
 v. third-party middleware
 
 #### Router
+
+1. router.all;
+2. router.method;
+3. router.param;
+4. router.route
