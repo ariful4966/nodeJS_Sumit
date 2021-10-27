@@ -33,6 +33,8 @@
 6. app.engin();
 7. app.render();
 
+#### Request
+
 - [x] Request Properties
 
 1. req.baseUrl
@@ -59,7 +61,7 @@
 2. res.headersSent
 3. res.locals
 
-- [x] Response Methods
+#### Response Methods
 
 1. res.cookie
 2. res.clearCookie
@@ -82,3 +84,5 @@ ii. router level middleware
 iii. error-handling middleware
 iv. build-in middleware
 v. third-party middleware
+
+#### Router
