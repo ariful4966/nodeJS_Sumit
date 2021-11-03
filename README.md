@@ -6,36 +6,23 @@
 
 **_Introduction_**
 
-#### Mongodb Database
+#### Mongoose
 
-- [x] mongodb commands
+- [x] Benefits of using mongoose
 
-1.  For show local database
-    > show dbs
-2.  create and use database
-    > use DATABASE_NAME
-3.  when database use yet
-    > db
-4.  Data insert for uses database
+  1. Abstraction from raw low level MongoDB
+  2. Relationship between NoSQL Data
+  3. Provides Schema Validation
+  4. Object-Data Mapping-translation of data into that our code understands and vice versa
+  5. ~ 40% - 60% less code compared to raw mongodb package
 
-- > db.COLLECTION_NAME.insertOne({name:"expName"})
-- > db.COLLECTION_NAME.insertMany([{},{},{}])
+- [x] Mongoose Model Instance Method
 
-5.  Show all data of database
+  1. Create a schema from mongoose.Schema class
+  2. Create a model (which i an another class) from mongoose.model class & pass schema to it
+  3. Create a document using model class
+  4. Call necessary Model instance method using document
 
-- > db.COLLECTION_NAME.find()
-- > db.COLLECTION_NAME.find({propertyName: value})
-- > db.COLLECTION_NAME.find({propertyName: value},{hideProperty: 0})
-- > db.COLLECTION_NAME.find({propertyName: value}).limit(1)
-- > db.COLLECTION_NAME.find({propertyName: value}).limit(1).skip(1)
-- > db.COLLECTION_NAME.findOne({propertyName: value})
-
-6.  Update from database collection obj
-
-- > db.COLLECTION_NAME.updateOne({propertyName:value},{$set:{updatePropertyName: updatedValue}})
-- > db.COLLECTION_NAME.updateMany({propertyName:value},{$set:{updatePropertyName: updatedValue}})
-
-7.  Delete data
-
-- > db.COLLECTION_NAME.deleteOne({propertyName:value})
-- > db.COLLECTION_NAME.deleteMany({propertyName:value})
+- ##### Instance Methods
+- ##### Statics
+- ##### Query Helpers
