@@ -2,31 +2,49 @@
 
 **Learn With Sumit**
 
-### Express
+## Requirement Analysis
 
-**_Introduction_**
+#### Page
 
-#### Mongoose
+- [ ] Login Page
+- [ ] Inbox Page
 
-- [x] Benefits of using mongoose
+#### Database Design
 
-  1. Abstraction from raw low level MongoDB
-  2. Relationship between NoSQL Data
-  3. Provides Schema Validation
-  4. Object-Data Mapping-translation of data into that our code understands and vice versa
-  5. ~ 40% - 60% less code compared to raw mongodb package
+- [x] Users Collection
 
-- [x] Mongoose Model Instance Method
+  1. name
+  2. email
+  3. password
+  4. avatar
+  5. mobile
+  6. role
 
-  1. Create a schema from mongoose.Schema class
-  2. Create a model (which i an another class) from mongoose.model class & pass schema to it
-  3. Create a document using model class
-  4. Call necessary Model instance method using document
+- [x] Messages Collection
 
-- ##### Instance Methods
-- ##### Statics
-- ##### Query Helpers
+  1. text
+  2. attachment
+  3. sender
+  4. receiver
+  5. date_time
+  6. conversation_id
 
-- [x] populate method
-- [x] jwt Token using login
-- [x] private route
+  - [x] Conversations Collection
+
+  1.  id
+  2.  creator_id
+  3.  participant
+  4.  last_updated
+
+  #### Functionalities
+
+  1. addUser
+  2. loginUser
+  3. deleteUser
+  4. editUser
+
+  5. getConversations
+  6. getMessages
+  7. sendMessage
+  8. addConversation
+  9. deleteConversation
