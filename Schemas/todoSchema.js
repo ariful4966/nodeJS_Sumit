@@ -11,6 +11,10 @@ const todoSchema = new mongoose.Schema({
         type: String,
         enum: ['active', 'inactive'],
     },
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+    },
     date: {
         type: Date,
         default: Date.now,

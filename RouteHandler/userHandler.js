@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
                     process.env.JWT_SECRET,
                     {
                         expiresIn: '1h',
-                    },
+                    }
                 );
                 res.status(200).send({
                     access_token: token,
@@ -61,6 +61,19 @@ router.post('/login', async (req, res) => {
     } catch (error) {
         res.send({
             error: error.message,
+        });
+    }
+});
+router.get('/all', async (req, res) => {
+    try {
+        const users = await User.find({ Status: 'active' }).populate('todos', 'title status -_id');
+        res.status(200).json({
+            data: users,
+            message: 'Success',
+        });
+    } catch (err) {
+        res.status(500).send({
+            message: 'There was and error on the server side!',
         });
     }
 });

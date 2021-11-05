@@ -26,3 +26,7 @@
 - ##### Instance Methods
 - ##### Statics
 - ##### Query Helpers
+
+- [x] populate method
+- [x] jwt Token using login
+- [x] private route
