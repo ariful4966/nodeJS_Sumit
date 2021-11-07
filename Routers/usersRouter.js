@@ -3,6 +3,7 @@ const {
   addUser,
   removeUser,
 } = require("../Controllers/usersController");
+const { checkLogin } = require("../Middlewares/commons/checkLogin");
 const decorateHtmlResponse = require("../Middlewares/commons/decorateHtmlResponse");
 const avatarUpload = require("../Middlewares/users/avatarUpload");
 const {
@@ -14,12 +15,13 @@ const {
 const router = require("express").Router();
 
 //login page
-router.get("/", decorateHtmlResponse("User Page"), getUsers);
+router.get("/", decorateHtmlResponse("Users"), checkLogin, getUsers);
 
 // Create new user
 
 router.post(
   "/",
+  checkLogin,
   avatarUpload,
   addUserValidators,
   addUserValidationHandler,
